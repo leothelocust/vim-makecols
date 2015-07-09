@@ -7,6 +7,26 @@ function! s:beep()
     return ""
 endfunction
 
+function! s:get_visual_selection()
+    let [lnum1, col1] = getpos("'<")[1:2]
+    let [lnum2, col2] = getpos("'>")[1:2]
+    let lines = getline(lnum1, lnum2)
+    let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
+    let lines[0] = lines[0][col1 - 1:]
+    return lines
+    " return join(lines, "\n")
+endfunction
+
+function! s:replace_selected_text()
+    execute "normal! d"
+    let $clipboard = lines
+    execute "normal! \"*p"
+    echo "Just tried to replace the selection with the lines."
+    return ""
+endfunction
+
+
+
 function! s:makecols() range
     let mode = visualmode()
     if (mode !=# "V")
@@ -16,20 +36,8 @@ function! s:makecols() range
         echo "You are in the right mode"
     endif
     echo s:get_visual_selection()
-    return ""
+    return s:replace_selected_text()
 endfunction
-
-function! s:get_visual_selection()
-  let [lnum1, col1] = getpos("'<")[1:2]
-  let [lnum2, col2] = getpos("'>")[1:2]
-  let lines = getline(lnum1, lnum2)
-  let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
-  let lines[0] = lines[0][col1 - 1:]
-  return lines
-  " return join(lines, "\n")
-endfunction
-
-
 
 
 vnoremap <silent> mc :<C-U>call <SID>makecols()<CR>
