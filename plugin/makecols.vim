@@ -5,3 +5,21 @@
 function! s:makecols(no_of_cols)
     return s:beep()
 endfunction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+" vim:set ft=vim sw=4 sts=2 et:
