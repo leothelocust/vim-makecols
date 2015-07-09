@@ -25,7 +25,7 @@ endfunction
 
 
 
-vnoremap mc :call <SID>makecols()<CR>
+vnoremap <silent> mc :<C-U>call <SID>makecols()<CR>
 
 
 
