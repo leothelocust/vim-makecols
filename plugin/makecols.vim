@@ -13,14 +13,14 @@ function! s:get_visual_selection()
     let lines = getline(lnum1, lnum2)
     let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
     let lines[0] = lines[0][col1 - 1:]
-    let $clipboard = lines
+    let @* = lines
     return lines
     " return join(lines, "\n")
 endfunction
 
 function! s:replace_selected_text()
-    execute "normal! d"
-    execute "normal! \"*p"
+    normal! d
+    normal! "*p
     echo "Just tried to replace the selection with the lines."
     return ""
 endfunction
