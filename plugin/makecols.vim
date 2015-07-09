@@ -7,7 +7,13 @@ function! s:beep()
     return ""
 endfunction
 
-function! s:makecols() range
+function! s:makecols(mode) range
+    if (mode != "V")
+        echo "You must be in linewise visual mode"
+        return s:beep()
+    else
+        echo "You are in the right mode"
+    endif
     echo s:get_visual_selection()
     return s:beep()
 endfunction
@@ -25,7 +31,7 @@ endfunction
 
 
 
-vnoremap <silent> mc :<C-U>call <SID>makecols()<CR>
+vnoremap <silent> mc :<C-U>call <SID>makecols(visualmode())<CR>
 
 
 
