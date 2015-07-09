@@ -18,7 +18,7 @@ endfunction
 
 
 if !exists("g:makecols_no_mappings") || ! g:makecols_no_mappings
-    nmap mc :call makecols()
+    nmap mc :call <SID>makecols()<CR>
 endif
 
 
