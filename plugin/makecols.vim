@@ -7,7 +7,7 @@ function! s:beep()
     return ""
 endfunction
 
-function! s:makecols()
+function! s:makecols() range
     echo s:get_visual_selection()
     return s:beep()
 endfunction
