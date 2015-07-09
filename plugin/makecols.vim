@@ -9,7 +9,7 @@ endfunction
 
 function! s:makecols() range
     let mode = visualmode()
-    if (mode != "V")
+    if (mode !=# "V")
         echo "You must be in linewise visual mode"
         return s:beep()
     else
