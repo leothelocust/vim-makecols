@@ -8,9 +8,9 @@ function! s:beep()
 endfunction
 
 function! s:makecols()
-    let selection = $selection
     let lines = getline("'<")[getpos("'<")[2]-1:getpos("'>")[2]]
     echo lines
+    let lines = ""
     return s:beep()
 endfunction
 
@@ -18,9 +18,7 @@ endfunction
 
 
 
-if !exists("g:makecols_no_mappings") || ! g:makecols_no_mappings
-    vnoremap mc :call <SID>makecols()<CR>
-endif
+vnoremap mc :call <SID>makecols()<CR>
 
 
 
