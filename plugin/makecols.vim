@@ -7,7 +7,9 @@ function! s:beep()
     return ""
 endfunction
 
-function! s:makecols(no_of_cols)
+function! s:makecols()
+    let selection = $selection
+    let lines = getline("'<")[getpos("'<")[2]-1:getpos("'>")[2]]
     return s:beep()
 endfunction
 
@@ -15,11 +17,8 @@ endfunction
 
 
 
-nnoremap <Plug>MakeCols :<C-U>call <SID>makecols(4)<CR>
-
-
 if !exists("g:makecols_no_mappings") || ! g:makecols_no_mappings
-    nmap mc <Plug>MakeCols
+    nmap mc :call makecols()
 endif
 
 
