@@ -10,7 +10,8 @@ endfunction
 function! s:makecols()
     let selection = $selection
     let lines = getline("'<")[getpos("'<")[2]-1:getpos("'>")[2]]
-    return lines
+    echo lines
+    return s:beep()
 endfunction
 
 
