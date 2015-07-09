@@ -1,7 +1,7 @@
-markcols
+makecols
 ========
 
-Markcols.vim is intended to easily convert lists into column based
+Makecols.vim is intended to easily convert lists into column based
 layouts.
 
 The easiest way to explain is with examples.
