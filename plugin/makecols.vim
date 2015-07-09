@@ -2,8 +2,14 @@
 " Author:       Levi Olson <http://leviolson.com/>
 " Version:      1.0
 
+function! s:beep()
+    exe "norm! \<Esc>"
+    return ""
+endfunction
+
 function! s:makecols()
-    return s:get_visual_selection()
+    echo s:get_visual_selection()
+    return s:beep()
 endfunction
 
 function! s:get_visual_selection()
