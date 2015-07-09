@@ -7,7 +7,8 @@ function! s:beep()
     return ""
 endfunction
 
-function! s:makecols(mode) range
+function! s:makecols() range
+    let mode = visualmode()
     if (mode != "V")
         echo "You must be in linewise visual mode"
         return s:beep()
@@ -31,7 +32,7 @@ endfunction
 
 
 
-vnoremap <silent> mc :<C-U>call <SID>makecols(visualmode())<CR>
+vnoremap <silent> mc :<C-U>call <SID>makecols()<CR>
 
 
 
