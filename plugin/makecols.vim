@@ -16,7 +16,7 @@ function! s:makecols() range
         echo "You are in the right mode"
     endif
     echo s:get_visual_selection()
-    return s:beep()
+    return ""
 endfunction
 
 function! s:get_visual_selection()
