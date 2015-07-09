@@ -8,9 +8,8 @@ function! s:beep()
 endfunction
 
 function! s:makecols()
-    let lines = getline("'<")[getpos("'<")[2]-1:getpos("'>")[2]]
+    let lines = getpos("'<")-getpos("'>")
     echo lines
-    let lines = ""
     return s:beep()
 endfunction
 
