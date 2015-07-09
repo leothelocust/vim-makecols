@@ -19,7 +19,7 @@ function! s:get_visual_selection()
 endfunction
 
 function! s:replace_selected_text()
-    normal! d
+    :delete
     normal! "*p
     echo "Just tried to replace the selection with the lines."
     return ""
