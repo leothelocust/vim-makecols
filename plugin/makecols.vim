@@ -37,14 +37,14 @@ function! s:convert_selection(selection)
     for i in old_selection
         if (c == 0)
             " If first selected line
-            let new_string = join([new_string, old_selection[i]], "")
+            let new_string = join([new_string, i], "")
         else
             if (c % no_of_cols)
                 " If regular column
-                let new_string = join([new_string, old_selection[i]], "\t")
+                let new_string = join([new_string, i], "\t")
             else
                 " If end of row
-                let new_string = join([new_string, old_selection[i]], "\n")
+                let new_string = join([new_string, i], "\n")
             endif
         endif
         let c += 1
