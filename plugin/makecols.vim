@@ -101,15 +101,17 @@ function! s:replace_selected_text(converted_text)
     let @z = a:converted_text
     execute "normal! \"zP"
     echom "Just replaced the selection."
-    unlet @z
+    let @z = ""
     return ""
 endfunction
 
 
 
 function! s:makecols(orient, cols) range
+    " backup the globals
     let default_orientation = g:makecols_orientation
     let default_cols = g:makecols_cols
+
     let g:makecols_orientation = a:orient
     if (v:count > 0)
         let g:makecols_cols = v:count
@@ -119,19 +121,20 @@ function! s:makecols(orient, cols) range
     echom "Orientation: " . g:makecols_orientation
     echom "Number of Columns: " . g:makecols_cols
     let mode = visualmode()
+
     if (mode !=# "V")
         echo "You must be in linewise visual mode"
         return s:beep()
     else
         echo "You are in the right mode"
     endif
+
     let converted_text = s:convert_selection()
 
+    s:replace_selected_text(converted_text)
 
     let g:makecols_orientation = default_orientation
     let g:makecols_cols = default_cols
-
-    s:replace_selected_text(converted_text)
 
     return ""
 endfunction
