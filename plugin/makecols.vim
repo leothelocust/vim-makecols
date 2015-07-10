@@ -21,24 +21,34 @@ function! s:get_visual_selection()
     let lines = getline(lnum1, lnum2)
     " let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
     " let lines[0] = lines[0][col1 - 1:]
+    "
+    " Remove the current selection
     execute lnum1 . "," . lnum2 . "delete"
     let selection = join(lines, ",")
     return selection
 endfunction
 
 
-function! s:convert_selection(selection)
-    " Remove the current selection
+function! s:convert_selection()
+    let new_string = ""
+
+    if g:makecols_orientation == "horz"
+        let new_string = s:convert_selection_horz()
+    else
+        let new_string = s:convert_selection_vert()
+    endif
+
+    let @z = new_string
+    return @z
+endfunction
+
+function! s:convert_selection_horz()
     " Setup some variables
     let c = 0
-    let selection = a:selection
-    let old_selection = split(selection, ",")
     let new_string = ""
+    let selection = s:get_visual_selection()
+    let old_selection = split(selection, ",")
     let @z = ""
-
-    " Let's print out some info
-    echom "Old Selection: "
-    echom join(old_selection, ", ")
 
     " For Loopage Goes here
     for i in old_selection
@@ -57,8 +67,33 @@ function! s:convert_selection(selection)
         let c += 1
     endfor
 
-    let @z = join([new_string, ""], "\n")
-    return @z
+    return join([new_string, ""], "\n")
+endfunction
+
+function! s:convert_selection_vert()
+    " Setup some variables
+    let c = 0
+    let new_string = ""
+    let selection = s:get_visual_selection()
+    let old_selection = split(selection, ",")
+    let @z = ""
+
+    " For Loopage Goes here
+    for i in old_selection
+        if (c == 0)
+            " If first selected line
+            let new_string = join([new_string, i], "")
+        else
+            if (c % g:makecols_cols)
+                " If regular column
+                let new_string = join([new_string, i], "\t")
+            else
+                " If end of row
+                let new_string = join([new_string, i], "\n")
+            endif
+        endif
+        let c += 1
+    endfor
 endfunction
 
 function! s:replace_selected_text()
@@ -87,9 +122,7 @@ function! s:makecols(orient, cols) range
     else
         echo "You are in the right mode"
     endif
-    let selection = s:get_visual_selection()
-    echo selection
-    let converted_text = s:convert_selection(selection)
+    let converted_text = s:convert_selection()
 
 
     let g:makecols_orientation = default_orientation
