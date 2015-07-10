@@ -71,6 +71,8 @@ endfunction
 
 
 function! s:makecols(orient, cols) range
+    let default_orientation = g:makecols_orientation
+    let default_cols = g:makecols_cols
     let g:makecols_orientation = a:orient
     if (v:count > 0)
         let g:makecols_cols = v:count
@@ -89,6 +91,11 @@ function! s:makecols(orient, cols) range
     let selection = s:get_visual_selection()
     echo selection
     let converted_text = s:convert_selection(selection)
+
+
+    let g:makecols_orientation = default_orientation
+    let g:makecols_cols = default_cols
+
     return s:replace_selected_text()
 endfunction
 
