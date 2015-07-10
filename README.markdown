@@ -29,6 +29,38 @@ and you’d like it to look neater
 
 [That’s pretty neat](https://www.youtube.com/watch?v=Hm3JodBR-vs&feature=youtu.be&t=25s)
 
+
+Usage
+-----
+Here’s how you do it.
+
+Start with a list like above.
+    
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+
+Then visual select the rows you’d like to make neat.
+
+Then type ```mc``` and viola! The data has automagically been
+reconstructed into a satisfactory arrangement. Free of the meager
+and inferior single column list layout.
+
+    1   2
+    3   4
+    5   6
+    7   8
+    9   10
+
+
+
 Installation
 ------------
 
