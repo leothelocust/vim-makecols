@@ -20,6 +20,7 @@ function! s:get_visual_selection()
     let c = 0
     let no_of_cols = 6
     let new_string = ""
+    let @z = ""
 
     for i in lines
         " start combining
@@ -35,12 +36,12 @@ function! s:get_visual_selection()
         let c += 1
     endfor
 
-    let @a = new_string
+    let @z = new_string
     return lines
 endfunction
 
 function! s:replace_selected_text()
-    execute "normal! \"ap"
+    execute "normal! \"zP"
     echo "Just tried to replace the selection with the lines."
     return ""
 endfunction
