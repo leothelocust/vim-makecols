@@ -36,7 +36,7 @@ function! s:get_visual_selection()
         let c += 1
     endfor
 
-    let @z = new_string
+    let @z = join([new_string, ""], "\n")
     return lines
 endfunction
 
