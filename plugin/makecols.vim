@@ -2,6 +2,14 @@
 " Author:       Levi Olson <http://leviolson.com/>
 " Version:      1.0
 
+if !exists("g:makecols_orientation") || ! g:makecols_orientation
+    let g:makecols_orientation = "horz"
+endif
+if !exists("g:makecols_cols") || ! g:makecols_cols
+    let g:makecols_cols = "5"
+endif
+
+
 function! s:beep()
     exe "norm! \<Esc>"
     return ""
@@ -88,13 +96,6 @@ endfunction
 vnoremap <silent> mc :<C-U>call <SID>makecols(g:makecols_orientation, g:makecols_cols)<CR>
 vnoremap <silent> mch :<C-U>call <SID>makecols("horz", g:makecols_cols)<CR>
 vnoremap <silent> mcv :<C-U>call <SID>makecols("vert", g:makecols_cols)<CR>
-
-if !exists("g:makecols_orientation") || ! g:makecols_orientation
-    let g:makecols_orientation = "horz"
-endif
-if !exists("g:makecols_cols") || ! g:makecols_cols
-    let g:makecols_cols = "5"
-endif
 
 
 
