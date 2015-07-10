@@ -24,7 +24,7 @@ function! s:get_visual_selection()
     for i in lines
         " start combining
         if (c == 0)
-            let new_string = lines[i]
+            let new_string = join([new_string, lines[i]], "")
         else
             if (c % no_of_cols)
                 let new_string = join([new_string, lines[i]], "\t")
