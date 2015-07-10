@@ -10,11 +10,25 @@ endfunction
 function! s:get_visual_selection()
     let [lnum1, col1] = getpos("'<")[1:2]
     let [lnum2, col2] = getpos("'>")[1:2]
+    let no_of_lines = lnum2 - lnum1
+    let no_of_cols = 5
     let lines = getline(lnum1, lnum2)
     let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
     let lines[0] = lines[0][col1 - 1:]
     execute lnum1 . "," . lnum2 . "delete"
-    let @a = join(lines, ", ")
+
+    let new_string = ""
+
+    for i in lines
+        " start combining
+        if (i % no_of_cols)
+            let new_string = join([new_string, lines[i]], "\t")
+        else
+            let new_string = join([new_string, "\n"])
+        endif
+    endfor
+
+    let @a = new_string
     return lines
 endfunction
 
