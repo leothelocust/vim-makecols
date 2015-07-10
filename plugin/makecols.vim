@@ -62,10 +62,8 @@ endfunction
 
 
 
-function! s:makecols(options) range
-    let options = a:options
+function! s:makecols() range
     echom "Orientation: " . g:orientation
-    let cols = options[1]
     echom "Number of Columns: " . g:cols
     let mode = visualmode()
     if (mode !=# "V")
