@@ -10,17 +10,18 @@ endfunction
 function! s:get_visual_selection()
     let [lnum1, col1] = getpos("'<")[1:2]
     let [lnum2, col2] = getpos("'>")[1:2]
-    let no_of_lines = lnum2 - lnum1
-    let no_of_cols = 6
+    " let no_of_lines = lnum2 - lnum1
     let lines = getline(lnum1, lnum2)
-    let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
-    let lines[0] = lines[0][col1 - 1:]
     execute lnum1 . "," . lnum2 . "delete"
+    " let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
+    " let lines[0] = lines[0][col1 - 1:]
 
-    let new_string = ""
 
     let c = 0
-    for i in no_of_lines
+    let no_of_cols = 6
+    let new_string = ""
+
+    for i in lines
         " start combining
         if (c == 0)
             let new_string = lines[i]
