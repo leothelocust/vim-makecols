@@ -64,6 +64,7 @@ function! s:makecols() range
         echo "You are in the right mode"
     endif
     let selection = s:get_visual_selection()
+    echo selection
     let converted_text = s:convert_selection(selection)
     return s:replace_selected_text()
 endfunction
