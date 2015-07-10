@@ -63,13 +63,11 @@ endfunction
 
 
 function! s:makecols(orient) range
-    if exists(a:orient)
-        let g:makecols_orientation = a:orient
-    endif
-    echom "Orientation: " . g:makecols_orientation
+    let g:makecols_orientation = a:orient
     if exists(v:count)
         let g:makecols_cols = v:count
     endif
+    echom "Orientation: " . g:makecols_orientation
     echom "Number of Columns: " . g:makecols_cols
     let mode = visualmode()
     if (mode !=# "V")
@@ -85,7 +83,7 @@ function! s:makecols(orient) range
 endfunction
 
 
-vnoremap <silent> mc :<C-U>call <SID>makecols()<CR>
+vnoremap <silent> mc :<C-U>call <SID>makecols(g:makecols_orientation)<CR>
 vnoremap <silent> mch :<C-U>call <SID>makecols("horz")<CR>
 vnoremap <silent> mcv :<C-U>call <SID>makecols("vert")<CR>
 
