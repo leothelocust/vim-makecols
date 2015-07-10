@@ -21,6 +21,7 @@ endfunction
 
 function! s:convert_selection(selection)
     let c = 0
+    let selection = a:selection
     let no_of_cols = 6
     let new_string = ""
     let old_selection = split(selection, ",")
