@@ -11,32 +11,40 @@ function! s:get_visual_selection()
     " Why is this not a built-in Vim script function?!
     let [lnum1, col1] = getpos("'<")[1:2]
     let [lnum2, col2] = getpos("'>")[1:2]
-    execute lnum1 . "," . lnum2 . "delete"
     let lines = getline(lnum1, lnum2)
     " let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
     " let lines[0] = lines[0][col1 - 1:]
-    return join(lines, ",")
+    let selection = join(lines, ",")
+    return selection
 endfunction
 
 
 function! s:convert_selection(selection)
+    " Remove the current selection
+    execute lnum1 . "," . lnum2 . "delete"
+    " Setup some variables
     let c = 0
     let selection = a:selection
+    let old_selection = split(selection, ",")
     let no_of_cols = 6
     let new_string = ""
-    let old_selection = split(selection, ",")
-    echom "Old Selection: "
-    echom join(old_selection, ", ")
     let @z = ""
 
+    " Let's print out some info
+    echom "Old Selection: "
+    echom join(old_selection, ", ")
+
+    " For Loopage Goes here
     for i in old_selection
-        " start combining
         if (c == 0)
+            " If first selected line
             let new_string = join([new_string, old_selection[i]], "")
         else
             if (c % no_of_cols)
+                " If regular column
                 let new_string = join([new_string, old_selection[i]], "\t")
             else
+                " If end of row
                 let new_string = join([new_string, old_selection[i]], "\n")
             endif
         endif
