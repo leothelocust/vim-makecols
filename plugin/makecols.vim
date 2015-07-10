@@ -64,7 +64,7 @@ endfunction
 
 function! s:makecols(orient, cols) range
     let g:makecols_orientation = a:orient
-    if exists(v:count)
+    if (v:count > 0)
         let g:makecols_cols = v:count
     else
         let g:makecols_cols = a:cols
