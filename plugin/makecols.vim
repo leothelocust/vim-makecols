@@ -21,7 +21,7 @@ function! s:get_visual_selection()
     let lines = getline(lnum1, lnum2)
     " let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
     " let lines[0] = lines[0][col1 - 1:]
-    "
+    
     " Remove the current selection
     execute lnum1 . "," . lnum2 . "delete"
     let selection = join(lines, ",")
@@ -131,12 +131,11 @@ function! s:makecols(orient, cols) range
 
     let converted_text = s:convert_selection()
 
-    s:replace_selected_text(converted_text)
 
     let g:makecols_orientation = default_orientation
     let g:makecols_cols = default_cols
 
-    return ""
+    return s:replace_selected_text(converted_text)
 endfunction
 
 
