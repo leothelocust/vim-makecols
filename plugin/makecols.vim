@@ -83,10 +83,10 @@ endfunction
 
 vnoremap <silent> mc :<C-U>call <SID>makecols()<CR>
 
-if !exists("g:makecols_orientation") || ! g:makecols_orientation)
+if !exists("g:makecols_orientation") || ! g:makecols_orientation
     let g:makecols_orientation = "horz"
 endif
-if !exists("g:makecols_cols") || ! g:makecols_cols)
+if !exists("g:makecols_cols") || ! g:makecols_cols
     let g:makecols_cols = "5"
 endif
 
