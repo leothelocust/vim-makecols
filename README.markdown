@@ -49,9 +49,9 @@ Start with a list like above.
 
 Then visual select the rows you’d like to make neat.
 
-Then type ```mc``` and viola! The data has automagically been
-reconstructed into a satisfactory arrangement. Free of the worry
-caused by inadequate single column list layouts.
+Then type ```mc``` and viola! The data has automagically been reconstructed
+into a satisfactory arrangement.
+
 
     1   2
     3   4
@@ -59,7 +59,7 @@ caused by inadequate single column list layouts.
     7   8
     9   10
 
-
+You are now free of the worry caused by inadequate single column list layouts. Carry on.
 
 Installation
 ------------
