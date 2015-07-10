@@ -38,8 +38,7 @@ function! s:convert_selection()
         let new_string = s:convert_selection_vert()
     endif
 
-    let @z = new_string
-    return @z
+    return new_string
 endfunction
 
 function! s:convert_selection_horz()
@@ -94,11 +93,15 @@ function! s:convert_selection_vert()
         endif
         let c += 1
     endfor
+
+    return join([new_string, ""], "\n")
 endfunction
 
-function! s:replace_selected_text()
+function! s:replace_selected_text(converted_text)
+    let @z = a:converted_text
     execute "normal! \"zP"
     echo "Just tried to replace the selection."
+    unlet @z
     return ""
 endfunction
 
@@ -128,7 +131,7 @@ function! s:makecols(orient, cols) range
     let g:makecols_orientation = default_orientation
     let g:makecols_cols = default_cols
 
-    return s:replace_selected_text()
+    return s:replace_selected_text(converted_text)
 endfunction
 
 
