@@ -100,7 +100,7 @@ endfunction
 function! s:replace_selected_text(converted_text)
     let @z = a:converted_text
     execute "normal! \"zP"
-    echo "Just tried to replace the selection."
+    echom "Just replaced the selection."
     unlet @z
     return ""
 endfunction
@@ -131,7 +131,9 @@ function! s:makecols(orient, cols) range
     let g:makecols_orientation = default_orientation
     let g:makecols_cols = default_cols
 
-    return s:replace_selected_text(converted_text)
+    s:replace_selected_text(converted_text)
+
+    return ""
 endfunction
 
 
