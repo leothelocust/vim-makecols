@@ -62,10 +62,15 @@ endfunction
 
 
 
-function! s:makecols() range
+function! s:makecols(orient) range
+    if exists(a:orient)
+        let g:makecols_orientation = a:orient
+    endif
     echom "Orientation: " . g:makecols_orientation
+    if exists(v:count)
+        let g:makecols_cols = v:count
+    endif
     echom "Number of Columns: " . g:makecols_cols
-    echom "Specified no of Columns: " . v:count
     let mode = visualmode()
     if (mode !=# "V")
         echo "You must be in linewise visual mode"
@@ -81,6 +86,8 @@ endfunction
 
 
 vnoremap <silent> mc :<C-U>call <SID>makecols()<CR>
+vnoremap <silent> mch :<C-U>call <SID>makecols("horz")<CR>
+vnoremap <silent> mcv :<C-U>call <SID>makecols("vert")<CR>
 
 if !exists("g:makecols_orientation") || ! g:makecols_orientation
     let g:makecols_orientation = "horz"
