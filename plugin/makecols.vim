@@ -33,7 +33,6 @@ function! s:convert_selection(selection)
     let c = 0
     let selection = a:selection
     let old_selection = split(selection, ",")
-    let no_of_cols = 6
     let new_string = ""
     let @z = ""
 
@@ -47,7 +46,7 @@ function! s:convert_selection(selection)
             " If first selected line
             let new_string = join([new_string, i], "")
         else
-            if (c % no_of_cols)
+            if (c % g:makecols_cols)
                 " If regular column
                 let new_string = join([new_string, i], "\t")
             else
