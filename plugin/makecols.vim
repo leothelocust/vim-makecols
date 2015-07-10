@@ -20,8 +20,9 @@ function! s:get_visual_selection()
     let c = 0
     let no_of_cols = 6
     let new_string = ""
-    let old_string = split($selection, "\n")
+    let old_string = split(&selection, "\n")
     echom "Old String: "
+    echom &selection
     echom join(old_string, ", ")
     let @z = ""
 
