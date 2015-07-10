@@ -50,8 +50,8 @@ Start with a list like above.
 Then visual select the rows you’d like to make neat.
 
 Then type ```mc``` and viola! The data has automagically been
-reconstructed into a satisfactory arrangement. Free of the meager
-and inferior single column list layout.
+reconstructed into a satisfactory arrangement. Free of the worry
+caused by inadequate single column list layouts.
 
     1   2
     3   4
