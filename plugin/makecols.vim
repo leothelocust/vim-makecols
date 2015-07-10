@@ -22,7 +22,7 @@ function! s:get_visual_selection()
     let new_string = ""
     let old_string = split($selection, "\n")
     echom "Old String: "
-    echom old_string
+    echom join(old_string, ", ")
     let @z = ""
 
     for i in lines
