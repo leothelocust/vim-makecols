@@ -27,6 +27,8 @@ and you’d like it to look neater
     7       8
     9       10
 
+[That’s pretty neat](https://www.youtube.com/watch?v=Hm3JodBR-vs&feature=youtu.be&t=25s)
+
 Installation
 ------------
 
