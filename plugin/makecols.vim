@@ -63,8 +63,8 @@ endfunction
 
 
 function! s:makecols() range
-    echom "Orientation: " . g:orientation
-    echom "Number of Columns: " . g:cols
+    echom "Orientation: " . g:makecols_orientation
+    echom "Number of Columns: " . g:makecols_cols
     let mode = visualmode()
     if (mode !=# "V")
         echo "You must be in linewise visual mode"
