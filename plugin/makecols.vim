@@ -62,7 +62,12 @@ endfunction
 
 
 
-function! s:makecols() range
+function! s:makecols(options) range
+    let options = a:options
+    let orientation = options[0]
+    echom "Orientation: " . orientation
+    let cols = options[1]
+    echom "Number of Columns: " . cols
     let mode = visualmode()
     if (mode !=# "V")
         echo "You must be in linewise visual mode"
@@ -77,7 +82,8 @@ function! s:makecols() range
 endfunction
 
 
-vnoremap <silent> mc :<C-U>call <SID>makecols()<CR>
+vnoremap <silent> mch :<C-U>call <SID>makecols(["horz", 5])<CR>
+vnoremap <silent> mcv :<C-U>call <SID>makecols(["vert", 5])<CR>
 
 
 
