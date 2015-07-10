@@ -20,6 +20,9 @@ function! s:get_visual_selection()
     let c = 0
     let no_of_cols = 6
     let new_string = ""
+    let old_string = split($selection, "\n")
+    echom "Old String: "
+    echom old_string
     let @z = ""
 
     for i in lines
@@ -42,7 +45,7 @@ endfunction
 
 function! s:replace_selected_text()
     execute "normal! \"zP"
-    echo "Just tried to replace the selection with the lines."
+    echo "Just tried to replace the selection."
     return ""
 endfunction
 
