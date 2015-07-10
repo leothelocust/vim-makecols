@@ -19,10 +19,11 @@ function! s:get_visual_selection()
 
     let new_string = ""
 
+    let c = 0
     for i in lines
         " start combining
-        if (i == 0)
-            let new_string = lines[0]
+        if (c == 0)
+            let new_string = lines[i]
         else
             if (i % no_of_cols)
                 let new_string = join([new_string, lines[i]], "\t")
@@ -30,6 +31,7 @@ function! s:get_visual_selection()
                 let new_string = join([new_string, lines[i]], "\n")
             endif
         endif
+        let c += 1
     endfor
 
     let @a = new_string
