@@ -20,7 +20,7 @@ function! s:get_visual_selection()
     let new_string = ""
 
     let c = 0
-    for i in lines
+    for i in no_of_lines
         " start combining
         if (c == 0)
             let new_string = lines[i]
