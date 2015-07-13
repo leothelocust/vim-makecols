@@ -85,27 +85,28 @@ function! s:convert_selection_vert()
     "   2   6   10
     "   3   7   11
     let new_string = ""
-    let row = 1
-    let pos = 0
+    let row = 0
+    let col = 0
     while row < rows
-        let col = 1
+        let pos = row
         echom "ROW: " . row . " COL: " . col . " POS: " . pos
-        if (row == 0)
+        if (row == 0 && col == 0)
             let content = get(old_selection, 0, "blank")
             let new_string = join([new_string, content], "")
+        else
+            let content = get(old_selection, row, "huh")
+            let new_string = join([new_string, content], "\n")
         endif
-        let pos = row
+
+        let col = 0
         while col < cols
             let col += 1
+            let pos = pos + rows
             echom "ROW: " . row . " COL: " . col . " POS: " . pos
             let content = get(old_selection, pos, "blank")
-            if (col == 0)
-                let new_string = join([new_string, content], "")
-            else
-                let new_string = join([new_string, content], "\t")
-            endif
-            let pos = row + rows
+            let new_string = join([new_string, content], "\t")
         endwhile
+
         let new_string = join([new_string,""], "\n")
         let row += 1
     endwhile
