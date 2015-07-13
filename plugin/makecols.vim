@@ -91,10 +91,10 @@ function! s:convert_selection_vert()
         let pos = row
         echom "ROW: " . row . " COL: " . col . " POS: " . pos
         if (row == 0 && col == 0)
-            let content = get(old_selection, 0, "blank")
+            let content = get(old_selection, 0, "")
             let new_string = join([new_string, content], "")
         else
-            let content = get(old_selection, row, "huh")
+            let content = get(old_selection, row, "")
             let new_string = join([new_string, content], "\n")
         endif
 
@@ -103,7 +103,7 @@ function! s:convert_selection_vert()
             let col += 1
             let pos = pos + rows
             echom "ROW: " . row . " COL: " . col . " POS: " . pos
-            let content = get(old_selection, pos, "blank")
+            let content = get(old_selection, pos, "")
             let new_string = join([new_string, content], "\t")
         endwhile
         let row += 1
