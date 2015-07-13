@@ -71,6 +71,7 @@ endfunction
 
 function! s:convert_selection_vert()
     " Setup some variables
+    let cols = g:makecols_cols
     let selection = s:get_visual_selection()
     let old_selection = split(selection, ",")
     let lines = len(old_selection) * 1.0
@@ -78,25 +79,25 @@ function! s:convert_selection_vert()
     let rows = float2nr(ceil(rows))
     let @z = ""
 
+    "   12 item example below
+    "   0   4   8
     "   1   5   9
     "   2   6   10
     "   3   7   11
-    "   4   8   12
     let new_string = ""
-    let c = 0
-    while c < g:makecols_cols
-        let cols = g:makecols_cols
+    let r = 0
+    while row < rows
         let sec = get(old_selection, c, "")
-        let i = c
-        echom "C: " . c
-        while i < lines
-            let i = i + rows
-            echom "I: " . i
-            let sec = get(old_selection, i, "blank")
+        let col = row
+        echom "Row: " . row
+        while col < cols
+            let char = col + rows
+            echom "R" . row . "C" . col
+            let sec = get(old_selection, char, "blank")
             let new_string = join([new_string, sec], "\t")
         endwhile
         let new_string = join([new_string,""], "\n")
-        let c += 1
+        let row += 1
     endwhile
 
     return join([new_string, ""], "\n")
