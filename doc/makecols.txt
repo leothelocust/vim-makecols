@@ -21,7 +21,6 @@ examples.  It is assumed that you have selected the "Old text" column.
   6                                     6   7
   7
 
-
 While a few features of this plugin will work in older versions of Vim,
 Vim 7 is recommended for full functionality.
 
