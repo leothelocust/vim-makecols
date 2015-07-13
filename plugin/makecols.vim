@@ -77,11 +77,9 @@ function! s:convert_selection_vert()
     let old_selection = split(selection, ",")
     let lines = len(old_selection)
     let rows = lines / g:makecols_cols
-    let actual_rows = float2nr(round(rows))
-    if (actual_rows != rows)
-        let actual_rows += 1
-    endif
     echo "Rows " . rows
+    let calc_rows = float2nr(round(rows))
+    echo "Calc Rows " . calc_rows
     let @z = ""
 
     " For Loopage Goes here
