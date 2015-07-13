@@ -75,8 +75,8 @@ function! s:convert_selection_vert()
     let new_string = ""
     let selection = s:get_visual_selection()
     let old_selection = split(selection, ",")
-    let lines = printf('%.1', len(old_selection))
-    echom "Lines: " . float2nr(lines)
+    let lines = len(old_selection) * 1.0
+    echom "Lines: " . lines
     echom "Cols: " . g:makecols_cols
     let rows = lines / g:makecols_cols
     echom "Rows: " . rows
