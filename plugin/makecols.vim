@@ -76,10 +76,10 @@ function! s:convert_selection_vert()
     let selection = s:get_visual_selection()
     let old_selection = split(selection, ",")
     let lines = len(old_selection) * 1.0
-    echom "Lines: " . float2nr(lines)
+    echom "Lines: " . string(lines)
     echom "Cols: " . g:makecols_cols
-    let rows = lines / g:makecols_cols
-    echom "Rows: " . float2nr(rows)
+    let rows = (lines / g:makecols_cols) * 1.0
+    echom "Rows: " . string(rows)
     " let calc_rows = float2nr(ceil(rows))
     " echom "Rounded: " . calc_rows
     let @z = ""
