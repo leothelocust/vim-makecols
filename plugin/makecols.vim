@@ -76,29 +76,29 @@ function! s:convert_selection_vert()
     let selection = s:get_visual_selection()
     let old_selection = split(selection, ",")
     let lines = len(old_selection) * 1.0
-    echom "Lines: " . string(lines)
-    echom "Cols: " . g:makecols_cols
     let rows = (lines / g:makecols_cols) * 1.0
-    echom "Rows: " . string(ceil(rows))
-    " let calc_rows = float2nr(ceil(rows))
-    " echom "Rounded: " . calc_rows
     let @z = ""
 
+    let r = 1
     " For Loopage Goes here
     for i in old_selection
-        if (c == 0)
-            " If first selected line
-            let new_string = join([new_string, i], "")
-        else
-            if (c % g:makecols_cols)
-                " If regular column
-                let new_string = join([new_string, i], "\t")
+            if (c == 0)
+                " If first selected line
+                " let new_string = join([new_string, i], "")
+                let new_string = i
             else
-                " If end of row
-                let new_string = join([new_string, i], "\n")
+                if (r == rows)
+                    " If end of row
+                    let new_string = join([new_string, i], "\n")
+                    let r = 0
+                else
+                    " If regular column
+                    let new_string = join([new_string, i], "\t")
+                endif
+                let r += 1
             endif
+            let c += 1
         endif
-        let c += 1
     endfor
 
     return join([new_string, ""], "\n")
