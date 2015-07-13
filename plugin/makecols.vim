@@ -83,7 +83,7 @@ function! s:convert_selection_vert()
     " For Loopage Goes here
     let a = rows
     for i in old_selection
-        if (a % rows)
+        if (a % g:makecols_cols)
             echom old_selection[a]
             let a = rows
         else
