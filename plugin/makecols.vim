@@ -78,10 +78,10 @@ function! s:convert_selection_vert()
     let lines = len(old_selection)
     echom "Lines: " . lines
     echom "Cols: " . g:makecols_cols
-    let rows = lines / g:makecols_cols
+    let rows = ceil(lines / g:makecols_cols)
     echom "Rows: " . rows
-    let calc_rows = float2nr(ceil(rows))
-    echom "Rounded: " . calc_rows
+    " let calc_rows = float2nr(ceil(rows))
+    " echom "Rounded: " . calc_rows
     let @z = ""
 
     " For Loopage Goes here
