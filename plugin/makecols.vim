@@ -87,16 +87,15 @@ function! s:convert_selection_vert()
     let new_string = ""
     let row = 0
     while row < rows
+        echom "ROW: " . row
         if (row == 0)
-            let seg = get(old_selection, 0, "blank")
-            let new_string = join([new_string, seg], "")
+            let content = get(old_selection, 0, "blank")
+            let new_string = join([new_string, content], "")
         endif
         let col = row
-        echom "Line: " . row
-        echom "R" . row . "C0"
         while col < cols
             let pos = col + rows
-            echom "R" . row . "C" . col
+            echom "ROW: " . row . " COL: " . col . " POS: " . pos
             let content = get(old_selection, pos, "blank")
             if (col == 0)
                 let new_string = join([new_string, content], "")
