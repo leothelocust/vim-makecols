@@ -76,9 +76,12 @@ function! s:convert_selection_vert()
     let selection = s:get_visual_selection()
     let old_selection = split(selection, ",")
     let lines = len(old_selection)
-    let rows = (lines / g:makecols_cols) + 0.5
-    let rows = float2nr(round(rows))
-    echom "Rows" . rows
+    let rows = lines / g:makecols_cols
+    let actual_rows = float2nr(round(rows))
+    if (actual_rows != rows)
+        let actual_rows += 1
+    endif
+    echo "Rows " . rows
     let @z = ""
 
     " For Loopage Goes here
