@@ -82,7 +82,7 @@ function! s:convert_selection_vert()
 
     " For Loopage Goes here
     for i in old_selection
-        echom old_selection[i+2]
+        echom old_selection[i]
     endfor
 
     return join([new_string, ""], "\n")
