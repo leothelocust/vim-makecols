@@ -88,9 +88,11 @@ function! s:convert_selection_vert()
         let cols = g:makecols_cols
         let sec = get(old_selection, c, "")
         let i = c
+        echom "C: " . c
         while i <= lines
             let i = i + rows
-            let sec = get(old_selection, i, "")
+            echom "I: " . i
+            let sec = get(old_selection, i, "blank")
             let new_string = join([new_string, sec], "\t")
         endwhile
         let new_string = join([new_string,""], "\n")
