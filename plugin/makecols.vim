@@ -97,7 +97,7 @@ function! s:convert_selection_vert()
         let pos = row
         while col < cols
             let col += 1
-            let pos = pos + rows
+            let pos = row + rows
             echom "ROW: " . row . " COL: " . col . " POS: " . pos
             let content = get(old_selection, pos, "blank")
             if (col == 0)
@@ -105,7 +105,6 @@ function! s:convert_selection_vert()
             else
                 let new_string = join([new_string, content], "\t")
             endif
-            let pos += 1
         endwhile
         let new_string = join([new_string,""], "\n")
         let row += 1
