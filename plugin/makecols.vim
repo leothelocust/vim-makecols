@@ -74,12 +74,13 @@ function! s:convert_selection_vert()
     let c = 0
     let new_string = ""
     let list = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    let cols = g:makecols_cols
     let selection = s:get_visual_selection()
     let old_selection = split(selection, ",")
     let lines = len(old_selection) * 1.0
     let rows = (lines / g:makecols_cols) * 1.0
     let rows = float2nr(ceil(rows))
-    let cols = list["g:makecols_cols":]
+    let cols = list[cols:]
     echom string(cols)
     let @z = ""
 
