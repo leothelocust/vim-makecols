@@ -77,9 +77,9 @@ function! s:convert_selection_vert()
     let old_selection = split(selection, ",")
     let lines = len(old_selection)
     let rows = lines / g:makecols_cols
-    echo "Rows " . rows
+    echom "Rows " . rows
     let calc_rows = float2nr(round(rows))
-    echo "Calc Rows " . calc_rows
+    echom "Calc Rows " . calc_rows
     let @z = ""
 
     " For Loopage Goes here
@@ -105,7 +105,7 @@ endfunction
 function! s:replace_selected_text(converted_text)
     let @z = a:converted_text
     execute "normal! \"zP"
-    echom "Just replaced the selection."
+    " echom "Just replaced the selection."
     let @z = ""
     return ""
 endfunction
@@ -123,15 +123,12 @@ function! s:makecols(orient, cols) range
     else
         let g:makecols_cols = a:cols
     endif
-    echom "Orientation: " . g:makecols_orientation
-    echom "Number of Columns: " . g:makecols_cols
+    echom "Orient: " . g:makecols_orientation . ", No Cols: " . g:makecols_cols
     let mode = visualmode()
 
     if (mode !=# "V")
         echo "You must be in linewise visual mode"
         return s:beep()
-    else
-        echo "You are in the right mode"
     endif
 
     let converted_text = s:convert_selection()
