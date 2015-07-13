@@ -79,11 +79,6 @@ function! s:convert_selection_vert()
     let rows = float2nr(ceil(rows))
     let @z = ""
 
-    "   12 item example below
-    "   0   4   8
-    "   1   5   9
-    "   2   6   10
-    "   3   7   11
     let new_string = ""
     let row = 0
     let col = 0
