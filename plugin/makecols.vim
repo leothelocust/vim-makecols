@@ -80,7 +80,7 @@ function! s:convert_selection_vert()
     let rows = (lines / g:makecols_cols) * 1.0
     let rows = float2nr(ceil(rows))
     let cols = list["g:makecols_cols":]
-    echom cols
+    echom string(cols)
     let @z = ""
 
     " For Loopage Goes here
