@@ -61,6 +61,13 @@ into a satisfactory arrangement.
 
 You are now free of the worry caused by inadequate single column list layouts. Carry on.
 
+Additionally, you can do things like ```3mcv``` which would make 3 columns, and arrange to a vertical sorting like so:
+
+    1   5   9
+    2   6   10
+    3   7
+    4   8
+
 Installation
 ------------
 
