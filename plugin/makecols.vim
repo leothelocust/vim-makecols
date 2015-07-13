@@ -84,12 +84,12 @@ function! s:convert_selection_vert()
     "   4   8   12
     let new_string = ""
     let c = 0
-    while c <= g:makecols_cols
+    while c < g:makecols_cols
         let cols = g:makecols_cols
         let sec = get(old_selection, c, "")
         let i = c
         echom "C: " . c
-        while i <= lines
+        while i < lines
             let i = i + rows
             echom "I: " . i
             let sec = get(old_selection, i, "blank")
