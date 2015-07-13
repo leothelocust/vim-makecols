@@ -95,6 +95,7 @@ function! s:convert_selection_vert()
             echom "R" . row . "C" . col
             let sec = get(old_selection, char, "blank")
             let new_string = join([new_string, sec], "\t")
+            let col += 1
         endwhile
         let new_string = join([new_string,""], "\n")
         let row += 1
