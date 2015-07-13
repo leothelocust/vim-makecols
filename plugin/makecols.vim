@@ -75,6 +75,10 @@ function! s:convert_selection_vert()
     let new_string = ""
     let selection = s:get_visual_selection()
     let old_selection = split(selection, ",")
+    let lines = len(old_selection)
+    let rows = lines / g:makecols_cols
+    let rows = floor(rows)
+    echom rows
     let @z = ""
 
     " For Loopage Goes here
