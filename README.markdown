@@ -53,20 +53,20 @@ Then type ```mc``` and viola! The data has automagically been reconstructed
 into a satisfactory arrangement.
 
 
-    1   2
-    3   4
-    5   6
-    7   8
-    9   10
+    1       2
+    3       4
+    5       6
+    7       8
+    9       10
 
 You are now free of the worry caused by inadequate single column list layouts. Carry on.
 
 Additionally, you can do things like ```3mcv``` which would make 3 columns, and arrange to a vertical sorting like so:
 
-    1   5   9
-    2   6   10
-    3   7
-    4   8
+    1       5      9
+    2       6      10
+    3       7
+    4       8
 
 Installation
 ------------
