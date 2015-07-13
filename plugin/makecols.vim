@@ -87,7 +87,7 @@ function! s:convert_selection_vert()
     while c <= rows
         let cols = g:makecols_cols
         let sec = get(old_selection, c, "")
-        let i = 0
+        let i = c
         while i <= lines
             let i = i + rows
             let sec = get(old_selection, i, "")
