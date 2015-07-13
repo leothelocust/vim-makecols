@@ -86,8 +86,9 @@ function! s:convert_selection_vert()
         if (c == lines)
             break
         endif
-        echom get(old_selection, c, "")
-        echom get(old_selection, a, "")
+        let char1 = get(old_selection, c, "")
+        let char2 =  get(old_selection, a, "")
+        echo join([char1, char2], "\t")
         let a += 1
         let c += 1
     endfor
