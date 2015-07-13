@@ -82,23 +82,22 @@ function! s:convert_selection_vert()
     let r = 1
     " For Loopage Goes here
     for i in old_selection
-            if (c == 0)
-                " If first selected line
-                " let new_string = join([new_string, i], "")
-                let new_string = i
+        if (c == 0)
+            " If first selected line
+            " let new_string = join([new_string, i], "")
+            let new_string = i
+        else
+            if (r == rows)
+                " If end of row
+                let new_string = join([new_string, i], "\n")
+                let r = 0
             else
-                if (r == rows)
-                    " If end of row
-                    let new_string = join([new_string, i], "\n")
-                    let r = 0
-                else
-                    " If regular column
-                    let new_string = join([new_string, i], "\t")
-                endif
-                let r += 1
+                " If regular column
+                let new_string = join([new_string, i], "\t")
             endif
-            let c += 1
+            let r += 1
         endif
+        let c += 1
     endfor
 
     return join([new_string, ""], "\n")
