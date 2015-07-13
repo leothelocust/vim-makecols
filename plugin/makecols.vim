@@ -106,8 +106,6 @@ function! s:convert_selection_vert()
             let content = get(old_selection, pos, "blank")
             let new_string = join([new_string, content], "\t")
         endwhile
-
-        let new_string = join([new_string,""], "\n")
         let row += 1
     endwhile
 
