@@ -47,7 +47,7 @@ One can use a global variable for globally available replacements.
 >
   let g:makecols_cols = 5                   " default no of cols to 5
   let g:makecols_orientation = "horz"       " default sorting [horz|vert]
-
+<
 ISSUES                                          *makecols-issues*
 
 Vim could potentially get confused when deleting/changing occurs at the very
