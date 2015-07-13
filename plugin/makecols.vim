@@ -93,7 +93,7 @@ function! s:convert_selection_vert()
             let i = i + rows
             let sec = get(old_selection, i, "")
             let new_string = join([new_string, sec], "\t")
-            let i = z
+            let i = z+1
         endwhile
         let new_string = join([new_string,""], "\n")
         let c += 1
