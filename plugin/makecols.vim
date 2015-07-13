@@ -71,8 +71,6 @@ endfunction
 
 function! s:convert_selection_vert()
     " Setup some variables
-    let c = 0
-    let new_string = ""
     let selection = s:get_visual_selection()
     let old_selection = split(selection, ",")
     let lines = len(old_selection) * 1.0
@@ -80,23 +78,26 @@ function! s:convert_selection_vert()
     let rows = float2nr(ceil(rows))
     let @z = ""
 
+    "   1   5   9
+    "   2   6   10
+    "   3   7   11
+    "   4   8   12
+    let new_string = ""
+    let c = 0
     while c <= rows
-        echom "Count: " . c
+        let cols = g:makecols_cols
+        let sec = get(old_selection, c, "")
+        let i = 0
+        while i <= cols
+            let z = i
+            let i = i + rows
+            let sec = get(old_selection, i, "")
+            let new_string = join([new_string, sec], "\t")
+            let i = z
+        endwhile
+        let new_string = join([new_string,""], "\n")
         let c += 1
     endwhile
-
-    " For Loopage Goes here
-    " let a = rows
-    " for i in old_selection
-    "     if (c >= rows)
-    "         break
-    "     endif
-    "     let char1 = get(old_selection, c, "")
-    "     let char2 =  get(old_selection, a, "")
-    "     echo join([char1, char2], "\t")
-    "     let a += 1
-    "     let c += 1
-    " endfor
 
     return join([new_string, ""], "\n")
 endfunction
