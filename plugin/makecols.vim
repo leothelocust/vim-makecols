@@ -105,6 +105,7 @@ function! s:convert_selection_vert()
             else
                 let new_string = join([new_string, content], "\t")
             endif
+            let pos += 1
         endwhile
         let new_string = join([new_string,""], "\n")
         let row += 1
