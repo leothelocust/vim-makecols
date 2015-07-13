@@ -79,15 +79,15 @@ function! s:convert_selection_vert()
     let lines = len(old_selection) * 1.0
     let rows = (lines / g:makecols_cols) * 1.0
     let rows = float2nr(ceil(rows))
-    let cols = list[g:makecols_cols:]
+    let cols = list["g:makecols_cols":]
     echom cols
     let @z = ""
 
     " For Loopage Goes here
     let a = rows
     for i in old_selection
-        echom old_selection[c]
-        echom old_selection[a]
+        " echom old_selection[c]
+        " echom old_selection[a]
         let a += 1
         let c += 1
     endfor
