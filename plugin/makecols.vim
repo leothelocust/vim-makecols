@@ -77,8 +77,8 @@ function! s:convert_selection_vert()
     let old_selection = split(selection, ",")
     let lines = len(old_selection)
     let rows = lines / g:makecols_cols
-    let rows = floor(rows)
-    echom rows
+    let rows = float2nr(round(rows))
+    echom "Rows" . rows
     let @z = ""
 
     " For Loopage Goes here
