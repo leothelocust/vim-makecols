@@ -85,7 +85,7 @@ function! s:convert_selection_vert()
     "   2   6   10
     "   3   7   11
     let new_string = ""
-    let r = 0
+    let row = 0
     while row < rows
         let sec = get(old_selection, c, "")
         let col = row
