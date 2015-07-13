@@ -83,7 +83,7 @@ function! s:convert_selection_vert()
     " For Loopage Goes here
     let a = rows
     for i in old_selection
-        if (c == lines)
+        if (c >= rows)
             break
         endif
         let char1 = get(old_selection, c, "")
