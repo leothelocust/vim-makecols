@@ -86,13 +86,14 @@ function! s:convert_selection_vert()
     "   3   7   11
     let new_string = ""
     let row = 0
+    let pos = 0
     while row < rows
-        echom "ROW: " . row
+        let col = 0
+        echom "ROW: " . row . " COL: " . col . " POS: " . pos
         if (row == 0)
             let content = get(old_selection, 0, "blank")
             let new_string = join([new_string, content], "")
         endif
-        let col = row
         let pos = row
         while col < cols
             let pos = pos + rows
