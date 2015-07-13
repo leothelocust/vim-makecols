@@ -80,18 +80,22 @@ function! s:convert_selection_vert()
     let rows = float2nr(ceil(rows))
     let @z = ""
 
+    while c <= rows
+        echom "Count: " . c
+    endwhile
+
     " For Loopage Goes here
-    let a = rows
-    for i in old_selection
-        if (c >= rows)
-            break
-        endif
-        let char1 = get(old_selection, c, "")
-        let char2 =  get(old_selection, a, "")
-        echo join([char1, char2], "\t")
-        let a += 1
-        let c += 1
-    endfor
+    " let a = rows
+    " for i in old_selection
+    "     if (c >= rows)
+    "         break
+    "     endif
+    "     let char1 = get(old_selection, c, "")
+    "     let char2 =  get(old_selection, a, "")
+    "     echo join([char1, char2], "\t")
+    "     let a += 1
+    "     let c += 1
+    " endfor
 
     return join([new_string, ""], "\n")
 endfunction
