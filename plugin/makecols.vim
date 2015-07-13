@@ -76,10 +76,12 @@ function! s:convert_selection_vert()
     let selection = s:get_visual_selection()
     let old_selection = split(selection, ",")
     let lines = len(old_selection)
+    echom "Lines: " . lines
+    echom "Cols: " . g:makecols_cols
     let rows = lines / g:makecols_cols
-    echom "Rows " . rows
+    echom "Rows: " . rows
     let calc_rows = float2nr(round(rows))
-    echom "Calc Rows " . calc_rows
+    echom "Rounded: " . calc_rows
     let @z = ""
 
     " For Loopage Goes here
