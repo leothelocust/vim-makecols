@@ -80,7 +80,7 @@ function! s:convert_selection_vert()
     echom "Cols: " . g:makecols_cols
     let rows = lines / g:makecols_cols
     echom "Rows: " . rows
-    let calc_rows = float2nr(round(rows))
+    let calc_rows = ceil(rows)
     echom "Rounded: " . calc_rows
     let @z = ""
 
