@@ -77,6 +77,7 @@ function! s:convert_selection_vert()
     let old_selection = split(selection, ",")
     let lines = len(old_selection) * 1.0
     let rows = (lines / g:makecols_cols) * 1.0
+    let rows = float2nr(ceil(rows))
     let @z = ""
 
     let r = 1
