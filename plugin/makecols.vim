@@ -83,8 +83,8 @@ function! s:convert_selection_vert()
     " For Loopage Goes here
     let a = rows
     for i in old_selection
-        get(old_selection, c, "")
-        get(old_selection, a, "")
+        echom get(old_selection, c, "")
+        echom get(old_selection, a, "")
         let a += 1
         let c += 1
     endfor
