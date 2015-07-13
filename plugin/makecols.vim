@@ -85,10 +85,10 @@ function! s:convert_selection_vert()
     "   2   6   10
     "   3   7   11
     let new_string = ""
-    let row = 0
+    let row = 1
     let pos = 0
     while row < rows
-        let col = 0
+        let col = 1
         echom "ROW: " . row . " COL: " . col . " POS: " . pos
         if (row == 0)
             let content = get(old_selection, 0, "blank")
