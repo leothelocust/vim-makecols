@@ -99,7 +99,7 @@ function! s:convert_selection_vert()
         endif
 
         let col = 0
-        while col < cols
+        while col < cols - 1
             let col += 1
             let pos = pos + rows
             echom "ROW: " . row . " COL: " . col . " POS: " . pos
