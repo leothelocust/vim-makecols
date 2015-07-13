@@ -79,7 +79,7 @@ function! s:convert_selection_vert()
     echom "Lines: " . string(lines)
     echom "Cols: " . g:makecols_cols
     let rows = (lines / g:makecols_cols) * 1.0
-    echom "Rows: " . string(rows)
+    echom "Rows: " . string(ceil(rows))
     " let calc_rows = float2nr(ceil(rows))
     " echom "Rounded: " . calc_rows
     let @z = ""
