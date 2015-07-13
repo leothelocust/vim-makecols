@@ -1,4 +1,4 @@
-*makecols.txt*  Plugin for converting lists to columns
+*makecols.txt*  Plugin for Converting Lists to Columns
 
 Author:  Levi Olson <http://leviolson.com/>
 License: Same terms as Vim itself (see |license|)
