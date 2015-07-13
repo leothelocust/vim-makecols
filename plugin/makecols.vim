@@ -93,8 +93,9 @@ function! s:convert_selection_vert()
             let new_string = join([new_string, content], "")
         endif
         let col = row
+        let pos = row
         while col < cols
-            let pos = col + rows
+            let pos = pos + rows
             echom "ROW: " . row . " COL: " . col . " POS: " . pos
             let content = get(old_selection, pos, "blank")
             if (col == 0)
