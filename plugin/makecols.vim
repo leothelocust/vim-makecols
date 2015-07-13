@@ -82,6 +82,7 @@ function! s:convert_selection_vert()
 
     while c <= rows
         echom "Count: " . c
+        let c += 1
     endwhile
 
     " For Loopage Goes here
