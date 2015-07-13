@@ -6,7 +6,7 @@ if !exists("g:makecols_orientation") || ! g:makecols_orientation
     let g:makecols_orientation = "horz"
 endif
 if !exists("g:makecols_cols") || ! g:makecols_cols
-    let g:makecols_cols = "5"
+    let g:makecols_cols = 5
 endif
 
 
