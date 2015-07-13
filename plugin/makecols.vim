@@ -75,10 +75,10 @@ function! s:convert_selection_vert()
     let new_string = ""
     let selection = s:get_visual_selection()
     let old_selection = split(selection, ",")
-    let lines = len(old_selection)
-    echom "Lines: " . lines
+    let lines = printf('%.1', len(old_selection))
+    echom "Lines: " . float2nr(lines)
     echom "Cols: " . g:makecols_cols
-    let rows = float(lines) / g:makecols_cols
+    let rows = lines / g:makecols_cols
     echom "Rows: " . rows
     " let calc_rows = float2nr(ceil(rows))
     " echom "Rounded: " . calc_rows
