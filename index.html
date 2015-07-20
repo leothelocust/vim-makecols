@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Vim-makecols by leothelocust</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Vim-makecols</h1>
+        <p>makecols.vim: converting lists to columns made simple</p>
+
+        <p class="view"><a href="https://github.com/leothelocust/vim-makecols">View the Project on GitHub <small>leothelocust/vim-makecols</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/leothelocust/vim-makecols/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/leothelocust/vim-makecols/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/leothelocust/vim-makecols">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="makecols" class="anchor" href="#makecols" aria-hidden="true"><span class="octicon octicon-link"></span></a>makecols</h1>
+
+<p>Makecols.vim is intended to easily convert lists into column based
+layouts.</p>
+
+<p>The easiest way to explain is with examples.</p>
+
+<p>Say you have a list of things (in this case numbers)</p>
+
+<pre><code>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</code></pre>
+
+<p>and you’d like it to look neater</p>
+
+<pre><code>1       2
+3       4
+5       6
+7       8
+9       10
+</code></pre>
+
+<p><a href="https://www.youtube.com/watch?v=Hm3JodBR-vs&amp;feature=youtu.be&amp;t=25s">That’s pretty neat</a></p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Here’s how you do it.</p>
+
+<p>Start with a list like above.</p>
+
+<pre><code>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</code></pre>
+
+<p>Then visual select the rows you’d like to make neat.</p>
+
+<p>Then type <code>mc</code> and viola! The data has automagically been reconstructed
+into a satisfactory arrangement.</p>
+
+<pre><code>1       2
+3       4
+5       6
+7       8
+9       10
+</code></pre>
+
+<p>You are now free of the worry caused by inadequate single column list layouts. Carry on.</p>
+
+<p>Additionally, you can do things like <code>3mcv</code> which would make 3 columns, and arrange to a vertical sorting like so:</p>
+
+<pre><code>1       5      9
+2       6      10
+3       7
+4       8
+</code></pre>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>If you don't have a preferred installation method, I recommend
+installing <a href="https://github.com/tpope/vim-pathogen">pathogen.vim</a>, and
+then simply copy and paste:</p>
+
+<pre><code>cd ~/.vim/bundle
+git clone git://github.com/leothelocust/vim-makecols.git
+</code></pre>
+
+<p>Once help tags have been generated, you can view the manual with
+<code>:help makecols</code>.</p>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Just pull, make some changes, and create a merge request.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright (c) Levi Olson. Distribution under the same terms as Vim itself.
+See <code>:help license</code>.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/leothelocust">leothelocust</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
